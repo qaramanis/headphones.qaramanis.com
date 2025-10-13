@@ -1,26 +1,248 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+    font-family: "Hack";
+    src: url("/fonts/hack/Hack-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Hack";
+    src: url("/fonts/hack/Hack-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Hack";
+    src: url("/fonts/hack/Hack-Italic.ttf") format("truetype");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Hack";
+    src: url("/fonts/hack/Hack-BoldItalic.ttf") format("truetype");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "WriterReg";
+    src: url("/fonts/writer/Writer-Regular.woff2") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "ParaDis";
+    src: url("/fonts/parabole/Parabole-DisplayRegular.woff2") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Satoshi";
+    src: url("/fonts/Satoshi/Satoshi-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Satoshi";
+    src: url("/fonts/Satoshi/Satoshi-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Echelon";
+    src: url("/fonts/Echelon/Echelon-Rg.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Echelon";
+    src: url("/fonts/Echelon/Echelon-It.otf") format("opentype");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-accent: var(--accent);
+    --font-sans: var(--font-hack);
+    --font-mono: var(--font-hack);
+    --font-paraText: var(--font-para-text);
+    --font-paraDis: var(--font-para-dis);
+    --font-writerReg: var(--font-writer-reg);
+    --font-echelon: var(--font-echelon);
+    --font-satoshi: var(--font-satoshi);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    :root {
+        --background: #000000;
+        --foreground: #ffffff;
+    }
+}
+
+:root {
+    --background: #ffffff;
+    --foreground: #000000;
+    --accent: #555555;
+    --font-hack: "Hack", "Courier New", monospace;
+    --font-writer-reg: "WriterReg", variable;
+    --font-para-dis: "ParaDis", variable;
+    --font-echelon: "Echelon", sans-serif;
+    --font-satoshi: "Satoshi", sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-hack);
+}
+
+::selection {
+    color: #ffffff;
+    background: #000000;
+}
+
+@keyframes bar-1 {
+    0%,
+    100% {
+        height: 45%;
+    }
+    25% {
+        height: 95%;
+    }
+    50% {
+        height: 30%;
+    }
+    75% {
+        height: 70%;
+    }
+}
+
+@keyframes bar-2 {
+    0%,
+    100% {
+        height: 70%;
+    }
+    30% {
+        height: 35%;
+    }
+    60% {
+        height: 90%;
+    }
+    80% {
+        height: 55%;
+    }
+}
+
+@keyframes bar-3 {
+    0%,
+    100% {
+        height: 55%;
+    }
+    20% {
+        height: 85%;
+    }
+    45% {
+        height: 40%;
+    }
+    70% {
+        height: 100%;
+    }
+}
+
+@keyframes bar-4 {
+    0%,
+    100% {
+        height: 85%;
+    }
+    35% {
+        height: 50%;
+    }
+    65% {
+        height: 75%;
+    }
+    90% {
+        height: 40%;
+    }
+}
+
+@keyframes bar-5 {
+    0%,
+    100% {
+        height: 65%;
+    }
+    15% {
+        height: 30%;
+    }
+    40% {
+        height: 95%;
+    }
+    75% {
+        height: 60%;
+    }
+}
+
+@keyframes bar-6 {
+    0%,
+    100% {
+        height: 50%;
+    }
+    25% {
+        height: 80%;
+    }
+    55% {
+        height: 40%;
+    }
+    85% {
+        height: 100%;
+    }
+}
+
+.animate-bar-1 {
+    animation: bar-1 1.6s ease-in-out infinite;
+}
+
+.animate-bar-2 {
+    animation: bar-2 1.3s ease-in-out infinite;
+    animation-delay: 0.2s;
+}
+
+.animate-bar-3 {
+    animation: bar-3 1.8s ease-in-out infinite;
+    animation-delay: 0.4s;
+}
+
+.animate-bar-4 {
+    animation: bar-4 1.5s ease-in-out infinite;
+    animation-delay: 0.3s;
+}
+
+.animate-bar-5 {
+    animation: bar-5 1.4s ease-in-out infinite;
+    animation-delay: 0.15s;
+}
+
+.animate-bar-6 {
+    animation: bar-6 1.7s ease-in-out infinite;
+    animation-delay: 0.5s;
 }
